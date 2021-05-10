@@ -1,0 +1,526 @@
+/*!
+Theme Name: VivaTheme
+Theme URI: http://underscores.me/
+Author: Viva
+Author URI: http://viva.coder@gmail.com
+Description: Viva demo theme
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: vivatheme
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+VivaTheme is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Generic
+	- Normalize
+	- Box sizing
+# Base
+	- Typography
+	- Elements
+	- Links
+	- Forms
+## Layouts
+# Components
+	- Navigation
+	- Posts and pages
+	- Comments
+	- Widgets
+	- Media
+	- Captions
+	- Galleries
+# plugins
+	- Jetpack infinite scroll
+# Utilities
+	- Accessibility
+	- Alignments
+
+--------------------------------------------------------------*/
+
+// Import variables and mixins.
+@import "abstracts/abstracts";
+
+/*--------------------------------------------------------------
+# Fonts
+--------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*--------------------------------------------------------------
+# Generic
+--------------------------------------------------------------*/
+
+/* Normalize
+--------------------------------------------- */
+@import "generic/normalize";
+
+/* Box sizing
+--------------------------------------------- */
+@import "generic/box-sizing";
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+@import "base/base";
+
+/*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
+// @import "layouts/content-sidebar"; // Uncomment this line for a sidebar on right side of your content.
+// @import "layouts/sidebar-content"; // Uncomment this line for a sidebar on left side of your content.
+@import "layouts/flexboxgrid";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@import "components/components";
+
+/*--------------------------------------------------------------
+# Plugins
+--------------------------------------------------------------*/
+
+/* Jetpack infinite scroll
+--------------------------------------------- */
+@import "plugins/jetpack/infinite-scroll";
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+
+/* Accessibility
+--------------------------------------------- */
+@import "utilities/accessibility";
+
+/* Alignments
+--------------------------------------------- */
+@import "utilities/alignments";
+
+/* Header
+--------------------------------------------- */
+.header {
+  margin-bottom: 52px;
+
+  &__inner {
+    border-bottom: 1px solid $color__border;
+    padding: 40px 0;
+    position: relative;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $color__border;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+  }
+
+}
+.center {
+  text-align: center;
+}
+/* Content
+--------------------------------------------- */
+#page {
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.site-footer {
+  margin-top: auto;
+}
+
+.site-main {
+  max-width: 706px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.entry-title {
+
+  a {
+    text-decoration: none;
+    color: $color__dark;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.post {
+  border-top: 1px solid $color__border;
+  padding: 35px 0 0;
+  position: relative;
+  margin: 65px 0 0 ;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: $color__border;
+    position: absolute;
+    top: -5px;
+    left: 0;
+  }
+
+  &:first-child {
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .post__inner {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      background: #fff url(./images/item-post.png) center top no-repeat;
+      height: 47px;
+      width: 134px;
+      margin: 0 auto 55px;
+      padding: 0 23px;
+      position: relative;
+      z-index: 2;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $color__border;
+      height: 1px;
+      width: 100%;
+      margin-bottom: 55px;
+      max-width: 300px;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      margin-left: -150px;
+    }
+
+  }
+
+  &.sticky {
+    .post__inner-content {
+      padding: 20px 50px 50px;
+      background: #f8f8f7;
+    }
+    .post-thumbnail {
+      margin-bottom: 0;
+    }
+    .comments-link {
+      bottom: 64px;
+    }
+    .edit-link {
+      bottom: 67px;
+    }
+  }
+
+
+  .comments-link {
+    float: right;
+    border: 1px solid #ebebeb;
+    min-width: 40px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    a {
+      text-decoration: none;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 9px;
+      background: url(./images/icon-comment.png) 0 0 no-repeat;
+      margin-left: 5px;
+    }
+  }
+
+  .edit-link {
+    position: absolute;
+    right: 75px;
+    bottom: 3px;
+  }
+
+  .entry-meta {
+    font-style: italic;
+    font-size: 14px;
+    color: $color__base;
+    margin-bottom: 20px;
+  }
+
+  .post-thumbnail {
+    margin-bottom: 20px;
+    display: block;
+  }
+  .entry-content {
+    p {
+      margin: 0;
+      padding-bottom: 1.5em;
+    }
+  }
+}
+
+.pagination .nav-links {
+  display: flex;
+  margin-bottom: 70px;
+  margin-top: 50px;
+  span, a {
+    margin: 0 5px;
+    width: 43px;
+    height: 43px;
+    text-align: center;
+    text-decoration: none;
+    color: $color__dark;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.prev,
+    &.next {
+      &:before {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 20px;
+        background: url(./images/arrow-right.png) 0 0 no-repeat;
+      }
+    }
+
+    &.prev {
+      &:before {
+        background: url(./images/arrow-left.png) 0 0 no-repeat;
+      }
+    }
+  }
+
+  a {
+    &:hover {
+      background-color: #f5f4f2;
+    }
+  }
+}
+
+.comment-form {
+  > p {
+    display: flex;
+    align-items: center;
+
+    &.comment-form-comment {
+      flex-wrap: wrap;
+    }
+
+    &.comment-form-cookies-consent {
+      display: block;
+    }
+
+    label {
+      min-width: 20%;
+    }
+  }
+
+  .comment-notes {
+    display: block;
+    span {
+      display: block;
+    }
+  }
+}
+.wp-block-quote {
+  margin: 0 0 1.5em 3.7em;
+  border-left: 1px solid $color__border;
+  padding-left: 30px;
+  p {
+    margin: 0 0 1.2em;
+    font-size: 19px;
+    color: $color__dark;
+    font-family: $font-primary;
+  }
+  cite {
+    font-style: normal;
+  }
+}
+.wp-block-pullquote {
+  padding: 0;
+  text-align: left;
+  overflow: hidden;
+  margin-left: 3.7em;
+  blockquote {
+    margin: 20px 1em 20px 4.7em;
+    position: relative;
+    border-left: 1px solid #657c56;
+    padding-left: 20px;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 27px;
+      height: 27px;
+      background: url(./images/blockquote-icon.png) 0 0 no-repeat;
+      left: -40px;
+      top: 0;
+    }
+    p {
+      margin: 20px 0 20px;
+      font-size: 19px;
+      font-family: $font-primary;
+    }
+    cite {
+      font-style: normal;
+    }
+  }
+  &:not(.is-style-solid-color) {
+    background-color: #3f5b2c;
+    color: #fff;
+  }
+}
+h1.entry-title {
+  font-weight: 400;
+}
+.post-navigation {
+  a {
+    text-decoration: none;
+    .nav-subtitle {
+      color: $color__base;
+      font-size: 14px;
+      display: block;
+    }
+    .nav-title {
+      font-family: $font-primary;
+      font-size: 17px;
+      line-height: 24px;
+    }
+    span {
+      width: 100%;
+    }
+  }
+  .nav-links {
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-top: 1px solid $color__border;
+    padding-top: 50px;
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      top: -5px;
+      background-color: $color__border;
+      position: absolute;
+      left: 0;
+    }
+  }
+  .nav-previous {
+    a {
+      background: url(./images/prev-article.png) left center no-repeat;
+      padding-left: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+  .nav-next {
+
+    a {
+      background: url(./images/next-article.png) right center no-repeat;
+      padding-right: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+}
+.comments-area {
+    .comments-title {
+      font-size: 24px;
+    }
+  .comment-author {
+    margin-bottom: 15px;
+  }
+  .comment-metadata {
+    font-style: italic;
+    a {
+      margin-right: 5px;
+    }
+  }
+}
+/* Footer
+--------------------------------------------- */
+.footer {
+  margin-top: 50px;
+  &__inner {
+    border-top: 1px solid $color__border;
+    padding: 40px 0;
+    position: relative;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $color__border;
+      position: absolute;
+      top: -5px;
+      left: 0;
+    }
+  }
+}
+
+.theme-social-menu {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: $font-primary;
+
+  li {
+    margin-left: 26px;
+    font-size: 11px;
+    text-transform: uppercase;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}

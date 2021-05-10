@@ -1,0 +1,23 @@
+a {
+	color: #1f3315;
+	transition: 0.3s ease;
+	text-decoration: underline;
+	&:visited {
+		color: #1f3315;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}

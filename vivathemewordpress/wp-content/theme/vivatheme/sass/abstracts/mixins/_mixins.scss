@@ -1,0 +1,47 @@
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+@mixin h1 {
+	font-family: $font-primary;
+	font-size: 44px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+@mixin h2 {
+	font-family: $font-primary;
+	font-size: 34px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+@mixin h3 {
+	font-family: $font-primary;
+	font-size: 24px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+@mixin h4 {
+	font-family: $font-primary;
+	font-size: 20px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+@mixin h5 {
+	font-family: $font-primary;
+	font-size: 17px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+@mixin h6 {
+	font-family: $font-primary;
+	font-size: 13px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
